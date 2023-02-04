@@ -152,6 +152,24 @@ for (var i = 0; i < randomPairings.length; i++) {
   pairingList.appendChild(pairingItem);
 }
       }
+      function randomPlayer() {
+  // Überprüfen, ob es noch verfügbare Spieler gibt
+  if (availablePlayers.length === 0) {
+    alert("Alle Spieler wurden ausgelost");
+    return;
+  }
+  
+  // Zufälligen Spieler auswählen
+  var randomIndex = Math.floor(Math.random() * availablePlayers.length);
+  var randomPlayer = availablePlayers[randomIndex];
+  
+  // Spieler aus dem Array der verfügbaren Spieler entfernen
+  availablePlayers.splice(randomIndex, 1);
+  
+  // Rückgabe des zufälligen Spielers
+  return randomPlayer;
+}
+
   
       function saveData() {
         localStorage.setItem("players", JSON.stringify(players));
